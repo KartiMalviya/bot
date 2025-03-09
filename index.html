@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College News Chatbot</title>
+    <script>
+        function getNews() {
+            let query = document.getElementById("query").value;
+            fetch(`/get_news?query=${query}`)
+            .then(response => response.json())
+            .then(data => document.getElementById("response").innerText = data.response);
+        }
+    </script>
+</head>
+<body>
+    <h2>College News Chatbot</h2>
+    <input type="text" id="query" placeholder="Enter keyword (e.g., exam)">
+    <button onclick="getNews()">Search</button>
+    <p id="response"></p>
+</body>
+</html>
